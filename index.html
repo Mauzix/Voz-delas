@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acolher — Informação e Apoio</title>
+  <meta name="description" content="Plataforma de informação e apoio para mulheres em situação de violência doméstica, com orientação sobre segurança, direitos e acesso rápido aos canais oficiais 180 e 190." />
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+   <link rel="icon" type="image/png" href="./assets/ess.svg" />
+  <style>
+    :root,
+    [data-theme="light"] {
+      --font-body: "Satoshi", Inter, sans-serif;
+      --font-display: "Clash Display", "Instrument Serif", serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.75rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+
+      --radius-sm: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 999px;
+
+      --bg: #f7f6f2;
+      --surface: #f9f8f5;
+      --surface-2: #f2efe9;
+      --surface-3: #ece8e1;
+      --border: rgba(40, 37, 29, 0.12);
+      --divider: rgba(40, 37, 29, 0.08);
+      --text: #28251d;
+      --text-muted: #706d66;
+      --text-faint: #a09b91;
+      --primary: #01696f;
+      --roxo:linear-gradient(135deg, #7c3aed, #a855f7);
+      --primary-hover: #8b5cf6;
+      --primary-soft: rgba(1, 105, 111, 0.08);
+      --danger: #a13544;
+      --danger-hover: #7c2330;
+      --danger-soft: rgba(161, 53, 68, 0.08);
+      --success: #437a22;
+      --success-soft: rgba(67, 122, 34, 0.08);
+      --shadow-sm: 0 1px 2px rgba(22, 18, 12, 0.05);
+      --shadow-md: 0 12px 32px rgba(22, 18, 12, 0.08);
+      --shadow-lg: 0 24px 60px rgba(22, 18, 12, 0.12);
+      --content: min(1180px, calc(100% - 2rem));
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --hero-glow: radial-gradient(circle at 20% 20%, rgba(1, 105, 111, 0.12), transparent 35%), radial-gradient(circle at 80% 15%, rgba(161, 53, 68, 0.08), transparent 30%);
+    }
+
+    [data-theme="dark"] {
+      --bg: #171614;
+      --surface: #1c1b19;
+      --surface-2: #22211f;
+      --surface-3: #2b2926;
+      --border: rgba(255, 255, 255, 0.12);
+      --divider: rgba(255, 255, 255, 0.08);
+      --text: #ece8e1;
+      --text-muted: #b2aea5;
+      --text-faint: #7d786f;
+      --primary: #6a10f0;
+      --botao-hover: #8b2279;
+      --primary-soft: rgba(79, 152, 163, 0.12);
+      --danger: #dd6974;
+      --danger-hover: #c24a59;
+      --danger-soft: rgba(221, 105, 116, 0.14);
+      --success: #7fb85a;
+      --success-soft: rgba(127, 184, 90, 0.12);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.26);
+      --shadow-md: 0 14px 38px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 28px 64px rgba(0, 0, 0, 0.36);
+      --hero-glow: radial-gradient(circle at 20% 20%, rgba(79, 152, 163, 0.18), transparent 35%), radial-gradient(circle at 80% 15%, rgba(221, 105, 116, 0.12), transparent 30%);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)) fixed,
+        var(--hero-glow),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, picture, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      z-index: 200;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .container {
+      width: var(--content);
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 3px;
+      z-index: 120;
+      background: transparent;
+    }
+
+    .progress > span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--danger));
+      transition: width 120ms linear;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px) saturate(160%);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .header-row {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .brand-mark {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), color-mix(in srgb, var(--primary) 70%, white));
+      box-shadow: var(--shadow-md);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-copy strong {
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-copy small {
+      margin-top: 0.28rem;
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-link,
+    .btn,
+    .icon-btn {
+      min-height: 44px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      padding: 0 1rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .btn:hover,
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 22px color-mix(in srgb, var(--primary) 26%, transparent);
+    }
+
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 22px color-mix(in srgb, var(--danger) 28%, transparent);
+    }
+
+    .btn-danger:hover { background: var(--danger-hover); }
+
+    .site-shell {
+      position: relative;
+      overflow: clip;
+    }
+
+    .hero {
+      padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 86%, transparent);
+      color: var(--text-muted);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin-top: var(--space-5);
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      max-width: 11ch;
+    }
+
+    .hero p.lead {
+      max-width: 62ch;
+      margin: var(--space-5) 0 0;
+      color: var(--text-muted);
+    }
+
+    .hero-actions,
+    .alert-actions,
+    .quick-grid,
+    .meta-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .glass-panel,
+    .card,
+    .story-card,
+    .timeline,
+    .highlight,
+    .alert,
+    .faq-item {
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .glass-panel {
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      backdrop-filter: blur(12px);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .metric {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: var(--text-lg);
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--text-muted);
+      font-size: var(--text-xs);
+    }
+
+    .section {
+      padding: clamp(2.5rem, 6vw, 5rem) 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: var(--space-6);
+      max-width: 72ch;
+    }
+
+    .section-head h2 {
+      font-size: var(--text-xl);
+      font-family: var(--font-display);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card,
+    .story-card,
+    .highlight,
+    .timeline,
+    .faq-item {
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      height: 100%;
+    }
+
+    .card .kicker,
+    .story-card .kicker,
+    .highlight .kicker {
+      display: inline-flex;
+      margin-bottom: var(--space-3);
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+    }
+
+    .card h3,
+    .story-card h3,
+    .highlight h3,
+    .timeline h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 0.65rem;
+    }
+
+    .card p,
+    .story-card p,
+    .highlight p,
+    .timeline p,
+    .faq-item p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .card ul,
+    .timeline ul,
+    .highlight ul {
+      margin: var(--space-4) 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .card li,
+    .timeline li,
+    .highlight li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      color: var(--text-muted);
+    }
+
+    .card li::before,
+    .timeline li::before,
+    .highlight li::before {
+      content: "";
+      width: 0.6rem;
+      height: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 50%;
+      background: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    .image-card {
+      overflow: hidden;
+      position: relative;
+      border-radius: calc(var(--radius-xl) + 0.25rem);
+      min-height: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .image-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.46) 100%);
+      pointer-events: none;
+    }
+
+    .image-caption {
+      position: absolute;
+      inset: auto 1.25rem 1.25rem 1.25rem;
+      z-index: 2;
+      color: #fff;
+      max-width: 36ch;
+    }
+
+    .image-caption strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .quick-grid {
+      margin-top: var(--space-5);
+    }
+
+    .chip {
+      min-height: 42px;
+      padding: 0 0.95rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-6);
+      align-items: stretch;
+    }
+
+    .timeline {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      align-items: start;
+    }
+
+    .timeline-step .step-index {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-top: 0.1rem;
+    }
+
+    .alert {
+      padding: var(--space-8);
+      border-radius: calc(var(--radius-xl) + 0.25rem);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--danger) 12%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 88%, white) 100%);
+      box-shadow: var(--shadow-md);
+    }
+
+    .alert h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+    }
+
+    .alert p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--text-muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-weight: 700;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item[open] summary { margin-bottom: var(--space-3); }
+
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: var(--space-10) 0 var(--space-12);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .footer p,
+    .footer li {
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .footer-list {
+      padding: 0;
+      margin: var(--space-4) 0 0;
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .toast {
+      position: fixed;
+      right: 1rem;
+      bottom: 5rem;
+      z-index: 140;
+      max-width: 24rem;
+      padding: 1rem 1rem;
+      border-radius: 1rem;
+      background: color-mix(in srgb, #111 92%, transparent);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+    }
+    .toast[hidden] { display: none; }
+
+    .quick-exit {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 150;
+      min-height: 50px;
+      padding: 0 1rem;
+      border-radius: var(--radius-full);
+      border: 0;
+      background: var(--danger);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--transition), background var(--transition);
+      cursor: pointer;
+    }
+
+    .quick-exit:hover {
+      transform: translateY(-2px);
+      background: var(--danger-hover);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .feature-layout,
+      .story-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-card img { min-height: 340px;max-width: 100%; }
+    }
+    .container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+    @media (max-width: 720px) {
+      .header-row {
+        padding: 0.9rem 0;
+        min-height: auto;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav,
+      .hero-actions,
+      .alert-actions,
+      .quick-grid {
+        width: 100%;
+      }
+
+      .nav-link,
+      .btn,
+      .icon-btn,
+      .chip {
+        flex: 1 1 calc(50% - 0.5rem);
+      }
+
+      .grid-2,
+      .grid-3,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-exit {
+        left: 1rem;
+        right: 1rem;
+        justify-content: center;
+      }
+
+      .toast {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.brand-mark {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#inicio" aria-label="Acolher, página inicial">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="18"  height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" >
+              <path d="M12 21s-6.7-4.35-9.2-8.3C.77 9.5 2.14 5.78 5.56 4.6A5.75 5.75 0 0 1 12 6.28 5.75 5.75 0 0 1 18.44 4.6c3.42 1.18 4.79 4.9 2.76 8.1C18.7 16.65 12 21 12 21Z"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>Acolher</strong>
+            <small>Informação, proteção e acesso à rede de apoio</small>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav-link" href="#inicio">Início</a>
+          <a class="nav-link" href="#violencia">Tipos de violência</a>
+          <a class="nav-link" href="#caminhos">Como agir</a>
+          <a class="nav-link" href="#apoio">Rede de apoio</a>
+          <a class="nav-link" href="#emergencia">Emergência</a>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar tema">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="inicio">
+        <div class="container hero-grid">
+          <div data-reveal>
+            <span class="eyebrow">Plataforma digital com foco em acolhimento e informação segura</span>
+            <h1>Violência doméstica não começa apenas na agressão física. Reconhecer os sinais pode salvar vidas.</h1>
+            <p class="lead">
+                 A violência doméstica pode acontecer de forma silenciosa e gradual. Reconhecer sinais de controle, ameaça, humilhação ou agressão é um passo importante para buscar proteção, apoio e segurança.
+            </p>
+
+            <div class="hero-actions" style="margin-top: var(--space-6);">
+              <a class="btn btn-primary botao"  href="#apoio">Buscar ajuda e orientação</a>
+              <a class="btn" href="#violencia">Reconhecer os sinais</a>
+            </div>
+
+            <div class="quick-grid" aria-label="Acesso rápido a informações importantes">
+              <span class="chip">Atendimento nacional gratuito 24h</span>
+              <span class="chip">Ligue 180 para denúncia e orientação</span>
+              <span class="chip">Acione 190 em situações de emergência</span>
+            </div>
+          </div>
+
+          <aside class="glass-panel hero-side" data-reveal aria-label="Resumo com ajuda imediata e destaques">
+            <div>
+              <span class="kicker" style="display:inline-flex;padding:.3rem .7rem;border-radius:999px;background:var(--success-soft);color:var(--success);font-size:var(--text-xs);font-weight:700;">Proteção imediata</span>
+                
+              <p style="margin-top: var(--space-3); color: var(--text-muted);">
+               Se você estiver em uma situação de violência, saiba que existem canais oficiais de apoio, orientação e proteção disponíveis todos os dias. Buscar ajuda é um direito e pode ser feito com segurança.
+              </p>
+            </div>
+
+            <div class="metric-grid" aria-label="Destaques principais da plataforma">
+              <div class="metric">
+                <strong>180</strong>
+                <span>Orientação, denúncia e encaminhamento</span>
+              </div>
+              <div class="metric">
+                <strong>190</strong>
+                <span>Emergência e risco imediato</span>
+              </div>
+              <div class="metric">
+                <strong>24h</strong>
+                <span>Canais acessíveis todos os dias</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="violencia">
+        <div class="container feature-layout">
+          <div>
+            <div class="section-head" data-reveal>
+              <h2>Como a violência pode aparecer no dia a dia</h2>
+              <p>
+               
+                 A violência doméstica pode acontecer de diferentes formas e nem sempre deixa marcas visíveis. Muitas situações são normalizadas dentro da relação, causando medo, isolamento emocional e perda gradual da autonomia.
+
+              </p>
+            </div>
+
+            <div class="grid grid-2">
+              <article class="card" data-reveal>
+                <span class="kicker">Violência física</span>
+                <h3>A agressão nem sempre começa com um episódio extremo</h3>
+                <p>
+                  Pode aparecer em empurrões, apertões, tapas, puxões, queimaduras, estrangulamento, uso de objetos para intimidar ou qualquer ação que atinja o corpo e a integridade física da mulher.
+                </p>
+                <ul>
+                  <li>Machucados frequentes com explicações contraditórias.</li>
+                  <li>Medo constante de desagradar o agressor dentro de casa.</li>
+                  <li>Aumento progressivo do controle e da intimidação física.</li>
+                </ul>
+              </article>
+
+              <article class="card" data-reveal>
+                <span class="kicker">Violência psicológica</span>
+                <h3>Controle, culpa e humilhação também são violência</h3>
+                <p>
+                  Comentários que diminuem, ameaças, chantagem, ciúme excessivo, vigilância do celular, isolamento de amigos e familiares e manipulação emocional podem gerar medo, insegurança e perda de autonomia.
+                </p>
+                <ul>
+                  <li>Frases que fazem a vítima duvidar da própria percepção.</li>
+                  <li>Controle de rotina, roupas, contatos e deslocamentos.</li>
+                  <li>Pressão emocional para impedir pedidos de ajuda.</li>
+                </ul>
+              </article>
+
+              <article class="card" data-reveal>
+                <span class="kicker">Violência sexual</span>
+                <h3>Consentimento é indispensável em qualquer relação</h3>
+                <p>
+                  Forçar práticas sexuais, constranger a mulher, impedir o uso de métodos contraceptivos, obrigar gravidez, aborto ou relações sem consentimento são formas graves de violência.
+                </p>
+                <ul>
+                  <li>Imposição de relações por medo, ameaça ou coerção.</li>
+                  <li>Desrespeito ao corpo e às decisões reprodutivas.</li>
+                  <li>Silenciamento por vergonha, medo ou dependência afetiva.</li>
+                </ul>
+              </article>
+
+              <article class="card" data-reveal>
+                <span class="kicker">Violência patrimonial e moral</span>
+                <h3>Retirar independência também é uma forma de agressão</h3>
+                <p>
+                  Destruir objetos, reter documentos, controlar salário, impedir trabalho, espalhar ofensas, mentiras e acusações públicas são práticas que enfraquecem a autonomia e a dignidade da vítima.
+                </p>
+                <ul>
+                  <li>Bloqueio de acesso a dinheiro, contas e documentos.</li>
+                  <li>Humilhação pública e difamação recorrente.</li>
+                  <li>Dependência forçada para dificultar a saída da situação.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <aside class="image-card" data-reveal >
+            <img
+              src="./assets/Captura de tela 2026-05-05 164147.png"
+              alt="Grupo de mulheres reunidas em um ambiente acolhedor de conversa e apoio"
+              width="1200"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="image-caption">
+              <strong>Rede de apoio faz diferença</strong>
+              <span>Uma presença acolhedora, com escuta qualificada e informação clara, pode ajudar a quebrar o isolamento e abrir caminhos mais seguros.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="caminhos">
+        <div class="container story-grid">
+          <div class="timeline" data-reveal>
+            <span class="kicker">Como agir</span>
+            <h3>Um caminho possível, passo a passo</h3>
+            <p>
+              Nem toda pessoa consegue sair imediatamente da situação. Por isso, a experiência do site foi ampliada com uma trilha de orientação gradual, respeitando medo, contexto, dependência econômica e necessidade de segurança.
+            </p>
+
+            <div class="timeline-step">
+              <div class="step-index">1</div>
+              <div>
+                <strong>Reconheça os sinais</strong>
+                <p>Entender que humilhação, ameaça, coerção, controle e agressão são violência ajuda a quebrar a normalização do abuso.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-index">2</div>
+              <div>
+                <strong>Priorize sua segurança</strong>
+                <p>Se houver risco imediato, procure um local seguro e acione a Polícia Militar. Se não for possível ligar, tente pedir ajuda a alguém de confiança.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-index">3</div>
+              <div>
+                <strong>Busque orientação especializada</strong>
+                <p>Use canais oficiais para receber escuta, orientação sobre direitos e encaminhamento para serviços especializados mais próximos.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-index">4</div>
+              <div>
+                <strong>Organize uma rede mínima de apoio</strong>
+                <p>Uma pessoa confiável, documentos essenciais e um plano simples de saída já podem reduzir riscos em um momento crítico.</p>
+              </div>
+            </div>
+          </div>
+
+          <article class="story-card" data-reveal>
+            <span class="kicker">Planejamento seguro</span>
+            <h3>Pequenas ações podem aumentar sua segurança</h3>
+            <p>
+             Em situações de violência doméstica, planejar medidas simples de proteção pode ajudar a reduzir riscos e facilitar o acesso rápido a apoio e atendimento em momentos de emergência.
+            </p>
+            <ul>
+              <li>Guardar documentos, contatos e itens essenciais em local acessível.</li>
+              <li>Combinar uma palavra de alerta com alguém de confiança.</li>
+              <li>Memorizar ou anotar discretamente números importantes.</li>
+              <li>Evitar confrontos quando houver risco elevado de agressão.</li>
+            </ul>
+            <button class="btn" type="button" data-toast="Guardar documentos, contatos e um ponto de apoio pode ajudar em situações de urgência.">Ver lembrete rápido</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="apoio">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <h2>Rede de apoio e direitos</h2>
+            <p>
+              Nenhuma mulher precisa enfrentar a violência sozinha. A rede de apoio pode incluir familiares, amigas, serviços públicos, atendimento psicológico, assistência social e canais especializados de proteção.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card" data-reveal>
+              <span class="kicker">Direitos</span>
+              <h3>Proteção legal e medidas urgentes</h3>
+              <p>
+                A legislação brasileira prevê mecanismos de prevenção e proteção para mulheres em situação de violência doméstica, além de responsabilização do agressor e integração com rede de atendimento.
+              </p>
+              <button class="btn" type="button" data-toast="A proteção pode envolver orientação jurídica, rede especializada e medidas protetivas de urgência.">Entender melhor</button>
+            </article>
+
+            <article class="card" data-reveal>
+              <span class="kicker">Atendimento</span>
+              <h3>Orientação, encaminhamento e escuta</h3>
+              <p>
+                Os canais oficiais podem informar sobre leis, direitos, serviços locais, registro de denúncias e encaminhamento para órgãos competentes, com atendimento todos os dias.
+              </p>
+              <button class="btn" type="button" data-toast="O canal 180 pode orientar sobre serviços especializados, direitos e encaminhamento.">Ver orientação</button>
+            </article>
+
+            <article class="card" data-reveal>
+              <span class="kicker">Acolhimento</span>
+              <h3>Buscar ajuda é um passo legítimo</h3>
+              <p>
+                Muitas mulheres demoram a pedir apoio por medo, vergonha ou dependência. Um site bem construído precisa comunicar acolhimento sem culpa, pressão ou julgamento.
+              </p>
+              <button class="btn" type="button" data-toast="Você não precisa resolver tudo de uma vez. Buscar informação já é um passo importante.">Ler mensagem</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container feature-layout">
+          <div class="highlight" data-reveal>
+            <span class="kicker">Importância do acolhimento</span>
+            <h3>Escuta, apoio e informação podem salvar vidas</h3>
+            <p>
+             Muitas mulheres permanecem em situações de violência por medo, dependência emocional, ameaças ou insegurança financeira. Ter acesso a informação confiável e acolhimento pode ajudar no reconhecimento da violência e na busca por proteção.
+            </p>
+            <ul>
+                <li>O apoio emocional reduz o isolamento e o medo.</li>
+                <li>Informação clara ajuda na tomada de decisões seguras.</li>
+                <li>Buscar ajuda não é sinal de fraqueza.</li>
+                <li>Canais especializados podem orientar cada situação.</li>
+                <li>A proteção da vítima deve ser prioridade.</li>
+            </ul>
+          </div>
+
+          <aside class="image-card" data-reveal>
+            <img
+              src="./assets/ChatGPT Image 14 de mai. de 2026, 18_51_06.png"
+              alt="Uma rede de apoio acolhendo uma mulher em situação de vulnerabilidade, representando empatia, proteção, escuta e solidariedade no combate à violência doméstica. A imagem transmite união, cuidado emocional e a importância de ninguém enfrentar o abuso sozinha."
+              width="1200"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="image-caption">
+              <strong>Rede de apoio e segurança</strong>
+              <span>Ter pessoas de confiança e acesso à orientação especializada pode ajudar mulheres a saírem de situações de violência com mais segurança.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="emergencia">
+        <div class="container">
+          <div class="alert" data-reveal>
+            <span class="kicker" style="background: var(--danger-soft); color: var(--danger);">Emergência</span>
+            <h2>Em situação de perigo iminente?</h2>
+            <p>
+              Em caso de emergência, a recomendação é acionar a Polícia Militar pelo 190. Para orientação, informações sobre direitos, serviços especializados e encaminhamento de denúncias, use o Ligue 180.
+            </p>
+            <div class="alert-actions" style="margin-top: var(--space-6);">
+              <a class="btn btn-danger" href="tel:190">Ligar 190</a>
+              <a class="btn btn-primary" href="tel:180">Ligar 180</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <h2>Perguntas frequentes</h2>
+            <p>
+              Estas perguntas ajudam a esclarecer dúvidas comuns sobre proteção, denúncias, orientação e acesso aos canais oficiais de atendimento.
+            </p>
+          </div>
+
+          <div class="faq">
+            <details class="faq-item" data-reveal>
+              <summary>O que o canal 180 pode fazer por mim?<span aria-hidden="true">+</span></summary>
+              <p>O canal pode orientar sobre direitos, leis, serviços especializados, registrar e encaminhar denúncias e informar como acessar a rede de atendimento.</p>
+            </details>
+
+            <details class="faq-item" data-reveal>
+              <summary>Quando devo ligar para o 190?<span aria-hidden="true">+</span></summary>
+              <p>O 190 deve ser usado em situação de emergência, risco imediato, agressão em andamento ou ameaça concreta à integridade física.</p>
+            </details>
+
+            <details class="faq-item" data-reveal>
+              <summary>Se eu ainda não posso sair de casa, ainda posso buscar ajuda?<span aria-hidden="true">+</span></summary>
+              <p>Sim. Buscar informação, orientação e construir uma rede de apoio gradual já pode ser um passo importante para aumentar sua segurança.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-3);">Acolher</h3>
+          <p>
+            <p>
+                O objetivo desta plataforma é oferecer informação acessível, orientação segura e incentivo à busca por apoio para mulheres em situação de violência doméstica.
+            </p>
+          </p>
+        </div>
+        <div>
+          <p style="font-weight: 700; color: var(--text);">Lembretes importantes</p>
+          <ul class="footer-list">
+            <li>Em risco imediato, acione o 190.</li>
+            <li>Para orientação e encaminhamento, use o 180.</li>
+            <li>O site oferece informação geral e apoio inicial.</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <button class="quick-exit" type="button" id="quickExit" aria-label="Sair rapidamente do site">
+    Sair rápido
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const toast = document.getElementById('toast');
+      const quickExit = document.getElementById('quickExit');
+      const progressBar = document.getElementById('progressBar');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let theme = prefersDark ? 'dark' : 'light';
+      let toastTimer;
+
+      root.setAttribute('data-theme', theme);
+
+      toggle?.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+      });
+
+      document.querySelectorAll('[data-toast]').forEach((button) => {
+        button.addEventListener('click', () => {
+          toast.textContent = button.dataset.toast;
+          toast.hidden = false;
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => {
+            toast.hidden = true;
+          }, 3400);
+        });
+      });
+
+      const onScroll = () => {
+        const el = document.documentElement;
+        const total = el.scrollHeight - el.clientHeight;
+        const value = total > 0 ? (window.scrollY / total) * 100 : 0;
+        progressBar.style.width = Math.min(100, Math.max(0, value)) + '%';
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('[data-reveal]').forEach((item) => observer.observe(item));
+
+      quickExit?.addEventListener('click', () => {
+        window.location.replace('https://www.google.com');
+      });
+    })();
+  </script>
+</body>
+</html>
