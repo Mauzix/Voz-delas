@@ -1,8 +1,8 @@
-# Documentação do Projeto — Acolher
+# Documentação do Projeto — Voz delas
 
 ## Sobre o projeto
 
-O projeto **Acolher** é uma plataforma web informativa desenvolvida com foco em conscientização, orientação e apoio para mulheres em situação de violência doméstica. O site apresenta informações sobre os diferentes tipos de violência, canais oficiais de denúncia, medidas de proteção e conteúdos de acolhimento.
+O projeto **Voz delas** é uma plataforma web informativa desenvolvida com foco em conscientização, orientação e apoio para mulheres em situação de violência doméstica. O site apresenta informações sobre os diferentes tipos de violência, canais oficiais de denúncia, medidas de proteção e conteúdos de acolhimento.
 
 A proposta do sistema é oferecer uma experiência acessível, clara e humanizada, priorizando segurança, legibilidade e navegação intuitiva.
 
